@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitchenfag Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000080"/> <!-- Dark Blue -->
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bitchenfag">
+    <link rel="apple-touch-icon" href="icons/icon-512x512.png"> <!-- Updated Placeholder -->
+</head>
+<body>
+    <header>
+        <h1>bitchenfag</h1>
+    </header>
+
+    <main>
+        <section class="converter encrypt-section">
+            <h2>Encrypt Number to Bitchified String</h2>
+            <form id="encrypt-form">
+                <label for="number-input">Enter 7 Digits:</label>
+                <input type="text" id="number-input" name="number-input" pattern="\d{7}" title="Please enter exactly 7 digits." required maxlength="7">
+                <button type="submit">bitchify</button>
+            </form>
+            <div class="output-container" id="encrypt-output-container" style="display: none;">
+                <p>Result:</p>
+                <div class="result-display">
+                    <span id="encrypted-output"></span>
+                    <button class="copy-button" id="copy-encrypted" title="Copy to clipboard">Copy</button>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="converter decrypt-section">
+            <h2>Decrypt Bitchified String to Number</h2>
+            <form id="decrypt-form">
+                <label for="bitch-input">Enter 7 BITCHENFAG Characters:</label>
+                <input type="text" id="bitch-input" name="bitch-input" pattern="[BITCHENFAGbitchenfag]{7}" title="Please enter exactly 7 characters from B, I, T, C, H, E, N, F, A, G." required maxlength="7">
+                <button type="submit">unfag</button>
+            </form>
+            <div class="output-container" id="decrypt-output-container" style="display: none;">
+                <p>Result:</p>
+                <div class="result-display">
+                    <span id="decrypted-output"></span>
+                    <button class="copy-button" id="copy-decrypted" title="Copy to clipboard">Copy</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
+    <script src="script.js"></script>
+    <script>
+        // Basic PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html> 
